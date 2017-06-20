@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <!-- Meta -->
+  <meta charset="UTF-8" />
+  <title>Coding Artist Task Board</title>
+  
+  <!-- Styles -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <link rel="stylesheet" href="styles/index.processed.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+  <!-- Scripts -->
+  <script src="https://unpkg.com/vue@2.1.10/dist/vue.js"></script>
+</head>
+<body>
+  
+  <script type="text/x-template" id="left-panel">
+    <section class="left-panel">
+      <board-title text="Board 1"></board-title>
+      <panel-menu></panel-menu>
+    </section>
+  </script>
+  
+  <script type="text/x-template" id="board-title">
+    <div class="board-title">
+      <h2>{{text}}</h2>
+    </div>
+  </script>
+  
+  <script type="text/x-template" id="panel-menu">
+    <div class="panel-menu">
+    	<div class="panel highlighted">
+        <div class="panel-text"><i class="icon fa fa-trello" aria-hidden="true"></i>Cards</div>
+    	</div>
+			<!-- <div class="panel">
+        <div class="panel-text"><i class="icon fa fa-tasks" aria-hidden="true"></i>Tasks</div>
+    	</div>
+      <div class="panel">
+      	<div class="panel-text"><i class="icon fa fa-area-chart" aria-hidden="true"></i>Progress</div>
+      </div> -->
+    </div>
+  </script>
+  
+  <script type="text/x-template" id="top-panel">
+    <section class="top-panel">
+      <img class="branding" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/827672/ca_logo.svg" />
+      <icon-tray></icon-tray>
+      <avatar image="https://images.pexels.com/photos/412840/pexels-photo-412840.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb"></avatar>
+    </section>
+  </script>
+  
+  <script type="text/x-template" id="avatar">
+    <div :style="{ 'background-image': 'url(' + image + ')' }" class="avatar-container"></div>
+  </script>
+  
+  <script type="text/x-template" id="icon-tray">
+    <i class="icon bell fa fa-bell-o" aria-hidden="true"></i>
+  </script>
+  
+  <script type="text/x-template" id="main-panel">
+    <section class="main-panel">
+      <card-column parentText="Column 1"></card-column>
+      <card-column parentText="Column 2"></card-column>
+    </section>
+  </script>
+  
+  <script type="text/x-template" id="card-column">
+    <div class="card-column">
+      <col-title :childText="parentText"></col-title>
+      <card heading="Card 1"></card>
+      <card heading="Card 2"></card>
+      <card heading="Card 3"></card>
+      <card heading="Card 4"></card>
+    </div>
+  </script>
+  
+  <script type="text/x-template" id="col-title">
+    <div class="col-title">{{childText}}</div>
+  </script>
+  
+  <script type="text/x-template" id="card">
+    <div class="card">
+      <div class="card-text">{{heading}}</div>
+    </div>
+  </script>
+  
+  <div id="app">
+    <top-panel></top-panel>
+    <left-panel></left-panel>
+    <main-panel></main-panel>
+  </div>
+  
+  <!-- Scripts -->
+  <script src="/scripts/components.js"></script>
+  <script src="/scripts/index.js"></script>
+</body>
+</html>
